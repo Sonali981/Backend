@@ -2,13 +2,14 @@ package com.backend.project.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 public class Product {
 	@Id
 	private int id;
 	private String name;
-	private String desc;
+	private String descc;
 	private int price;
 	public int getId() {
 		return id;
@@ -22,11 +23,11 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDesc() {
-		return desc;
+	public String getDescc() {
+		return descc;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescc(String descc) {
+		this.descc = descc;
 	}
 	public int getPrice() {
 		return price;
@@ -34,11 +35,11 @@ public class Product {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public Product(int id, String name, String desc, int price) {
+	public Product(int id, String name, String descc, int price) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.desc = desc;
+		this.descc = descc;
 		this.price = price;
 	}
 	public Product() {
