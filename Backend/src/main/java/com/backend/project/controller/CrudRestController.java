@@ -21,12 +21,11 @@ import com.backend.project.service.CrudService;
 
 @RestController
 public class CrudRestController {
-	//branch1
 	@Autowired
 	private CrudService service;
 	
 	@GetMapping("/getproductlist")
-	@CrossOrigin(origins="http://localhost:4200")
+	@CrossOrigin(origins={"${app.api.settings.cross-origin.url}"})
 	public List<Product> fetchProductList(){
 		List<Product> products=new ArrayList<Product>();
 		products=service.fetchProductList();
@@ -34,20 +33,20 @@ public class CrudRestController {
 	}
 	
 	@PostMapping("/addproduct")
-	@CrossOrigin(origins="http://localhost:4200")
+	@CrossOrigin(origins={"${app.api.settings.cross-origin.url}"})
 	public Product addProduct(@RequestBody Product p){
 		Product product=service.addProduct(p);
 		return product;
 	}
 	
 	@GetMapping("/getproduct/{id}")
-	@CrossOrigin(origins="http://localhost:4200")
+	@CrossOrigin(origins={"${app.api.settings.cross-origin.url}"})
 	public Product getProduct(@PathVariable int id){
 		return service.getProduct(id).get();
 	}
 	
 	@DeleteMapping("/deleteproduct/{id}")
-	@CrossOrigin(origins="http://localhost:4200")
+	@CrossOrigin(origins={"${app.api.settings.cross-origin.url}"})
 	public void deleteProduct(@PathVariable int id){
 		service.deleteProduct(id);
 	}
